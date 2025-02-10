@@ -1,6 +1,5 @@
-local TWS = game:GetService("TweenService")
-
 local deathTxt = script.Parent
+local TWS = game:GetService("TweenService")
 
 local sounds = {}
 local DeathMessages = {
@@ -25,7 +24,8 @@ local DeathMessages = {
   }
 }
 local function TextAnimation()
-  TWS:Create(deathTxt, TweenInfo.new(0.3), {Size = })
+  local zoomIn = TWS:Create(deathTxt, TweenInfo.new(0.3), {Size = })
+  
   wait(4.5) -- After 4.5 seconds, the text disappears with anim
   TWS:Create(deathTxt, TweenInfo.new(1, Enum.EasingStyle.Quad, EnumEasingDirection.Out, 0, false, 0)
 end
@@ -42,9 +42,11 @@ game.Players.PlayerAdded:Connect(function(player)
           rdDeathMsg = rdDeathMsg:gsub("{enemy}", Killer.Name)
           print(rdDeathMsg)
           deathTxt.Text = rdDeathMsg
-          
+          TextAnimation()
         end
       end
     end)
   end
+  end)
 end)
+end
