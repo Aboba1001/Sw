@@ -25,12 +25,9 @@ local DeathMessages = {
   }
 }
 local function TextAnimation()
-  TWS:Create(deathTxt, TweenInfo.new(0.1), {Size = })
-  wait(5)
-  TWS:Create(deathTxt, TweenInfo.new(
-    1,
-    Enum.EasingStyle.Quad, EnumEasingDirection.Out,
-    0, false, 0)
+  TWS:Create(deathTxt, TweenInfo.new(0.3), {Size = })
+  wait(4.5) -- After 4.5 seconds, the text disappears with anim
+  TWS:Create(deathTxt, TweenInfo.new(1, Enum.EasingStyle.Quad, EnumEasingDirection.Out, 0, false, 0)
 end
 game.Players.PlayerAdded:Connect(function(player)
   player.CharacterAdded:Connect(function(character)
@@ -45,6 +42,7 @@ game.Players.PlayerAdded:Connect(function(player)
           rdDeathMsg = rdDeathMsg:gsub("{enemy}", Killer.Name)
           print(rdDeathMsg)
           deathTxt.Text = rdDeathMsg
+          
         end
       end
     end)
