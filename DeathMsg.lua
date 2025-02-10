@@ -24,7 +24,10 @@ local DeathMessages = {
   }
 }
 local function TextAnimation()
-  local zoomIn = TWS:Create(deathTxt, TweenInfo.new(0.3), {Size = })
+  local dfSize = deathTxt.Size
+  local zoomSize = UDim2.new(dfSize.Size.X.Scale * 1.1, 0, dfSize.Size.Y.Scale * 1.1, 0)
+  
+  local zoomIn = TWS:Create(deathTxt, TweenInfo.new(0.3), {Size = UDim2.new(deathTxt.Size.X.Scale * 1.1, 0, deathTxt.Size.Y.Scale * 1.1, 0})
   
   wait(4.5) -- After 4.5 seconds, the text disappears with anim
   TWS:Create(deathTxt, TweenInfo.new(1, Enum.EasingStyle.Quad, EnumEasingDirection.Out, 0, false, 0)
