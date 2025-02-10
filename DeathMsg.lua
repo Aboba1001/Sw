@@ -27,10 +27,10 @@ local function TextAnimation()
   local dfSize = deathTxt.Size
   local zoomSize = UDim2.new(dfSize.Size.X.Scale * 1.1, 0, dfSize.Size.Y.Scale * 1.1, 0)
   
-  local zoomTxt = TWS:Create(deathTxt, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = zoomSize})
+  local zoomIn = TWS:Create(deathTxt, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = zoomSize})
   local zoomOut = TWS:Create(deathTxt, TweenInfo.new(0.1), Enum.EasingStyle.Quad, Enum.EasingDirectiom.Out), {Size = dfSize})
-    zoomTxt:Play()
-    zoomTxt:Completed:Wait()
+    zoomIn:Play()
+    zoomIn:Completed:Wait()
     wait(0.1)
     zoomOut:Play()
     wait(4.5)
