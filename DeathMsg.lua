@@ -39,22 +39,21 @@ local function TextAnimation()
 end
 game.Players.PlayerAdded:Connect(function(player)
   player.CharacterAdded:Connect(function(character)
-  local Humanoid = character:FindFirstChild("Humanoid")
-  if Humanoid then
-    humanoid.Died:Connect(function()
-      local Creator = Humanoid:FindFirstChild("creator")
-      if Creator and Creator.Value then
-        local Killer = Creator.value
-        if Killer:IsA("Player") then
-          local rdDeathMsg = DeathMessages.lose[math.random(1,#DeathMessages.lose)]
-          rdDeathMsg = rdDeathMsg:gsub("{enemy}", Killer.Name)
-          print(rdDeathMsg)
-          deathTxt.Text = rdDeathMsg
-          TextAnimation()
+    local Humanoid = character:FindFirstChild("Humanoid")
+    if Humanoid then
+      humanoid.Died:Connect(function()
+        local Creator = Humanoid:FindFirstChild("creator")
+        if Creator and Creator.Value then
+          local Killer = Creator.value
+          if Killer:IsA("Player") then
+            local rdDeathMsg = DeathMessages.lose[math.random(1,#DeathMessages.lose)]
+            rdDeathMsg = rdDeathMsg:gsub("{enemy}", Killer.Name)
+            print(rdDeathMsg)
+            deathTxt.Text = rdDeathMsg
+            TextAnimation()
+          end
         end
-      end
-    end)
-  end
+      end)
+    end
   end)
 end)
-end
