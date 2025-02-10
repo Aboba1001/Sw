@@ -27,12 +27,15 @@ local function TextAnimation()
   local dfSize = deathTxt.Size
   local zoomSize = UDim2.new(dfSize.Size.X.Scale * 1.1, 0, dfSize.Size.Y.Scale * 1.1, 0)
   
-  local zoomTxt = TWS:Create(deathTxt, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = zoomSize})
-  local zoomOut = TWS:Create(deathTxt, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirectiom.Out, {Size = dfSize})
+  local zoomTxt = TWS:Create(deathTxt, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = zoomSize})
+  local zoomOut = TWS:Create(deathTxt, TweenInfo.new(0.1), Enum.EasingStyle.Quad, Enum.EasingDirectiom.Out), {Size = dfSize})
     zoomTxt:Play()
+    zoomTxt:Completed:Wait()
+    wait(0.1)
     zoomOut:Play()
     wait(4.5)
-    TWS:Create(deathTxt, TweenInfo.new(1, Enum.EasingStyle.Quad, EnumEasingDirection.Out, 0, false, 0)
+    local doTweenAlpha = TWS:Create(deathTxt, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 1})
+    doTweenAlpha:Play()
 end
 game.Players.PlayerAdded:Connect(function(player)
   player.CharacterAdded:Connect(function(character)
