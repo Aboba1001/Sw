@@ -24,11 +24,13 @@ local DeathMessages = {
     "{enemy} sent you to Brazil."
   }
 }
-local function TxtAnimation()
-  
+local function TextAnimation()
   TWS:Create(deathTxt, TweenInfo.new(0.1), {Size = })
-  task.wait(5)
-  TWS:Create
+  wait(5)
+  TWS:Create(deathTxt, TweenInfo.new(
+    1,
+    Enum.EasingStyle.Quad, EnumEasingDirection.Out,
+    0, false, 0)
 end
 game.Players.PlayerAdded:Connect(function(player)
   player.CharacterAdded:Connect(function(character)
