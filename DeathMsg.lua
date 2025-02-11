@@ -14,7 +14,8 @@ local DeathMessages = {
     ":skull:",
     "glad i'm not you",
     "📸📸📸",
-    "what is bro cooking"
+    "what is bro cooking",
+    ":cri:"
   },
   win = {
     "Killed {enemy}"
