@@ -38,7 +38,7 @@ local sounds = {18633296261, 9060084190}
 local function playSound()
   local deathSound = Instance.new("Sound")
   deathSound.Parent = workspace
-  deathSound.SoundId = "rbxasset://" .. tostring(sounds[math.random(1, #sounds)])
+  deathSound.SoundId = "rbxasset://" .. sounds[math.random(1, #sounds)]
   deathSound:Play()
   
   local stTime = tick()
@@ -69,4 +69,7 @@ game.Players.PlayerAdded:Connect(function(player)
       local Creator = Humanoid.FindFirstChild("creator")
       if Creator == nil then
         if Humanoid.Health == 0 then
+          playSound()
+          playAnim()
           deathTxt.Text = DeathMessages[math.random(1, #death)]
+          print(" $ " .. DeathMessages[math.random(1, #death)])
