@@ -27,10 +27,14 @@ local sounds = {18633296261, 9060084190}
 local function playSound()
   local deathSound = Instance.new("Sound")
   deathSound.Parent = workspace
-  deathSound.SoundId = "rbxasset://" .. math.random(1, #sounds)
+  deathSound.SoundId = "rbxasset://" .. tostring(sounds[math.random(1, #sounds)])
   deathSound:Play()
   
-  task.wait(deathSound.TimeLength)
+  local stTime = tick()
+  while deathSound.TimeLength == 0 and tick() - stTime < 5 do
+    task.wait(0.1)
+  end
+  task.wait(deathSound.TimeLength + 2)
   deathSound:Destroy()
 end
 local function TextAnim()
