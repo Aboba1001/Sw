@@ -24,7 +24,7 @@ local DeathMessages = {
 }
 
 local sounds = {18633296261, 9060084190}
-local function Sound()
+local function playSound()
   local deathSound = Instance.new("Sound")
   deathSound.Parent = workspace
   deathSound.SoundId = "rbxasset://" .. deathSound[math.random(1, #sounds)]
