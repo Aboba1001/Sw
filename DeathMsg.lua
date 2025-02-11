@@ -1,7 +1,7 @@
 local deathTxt = script.Parent
 local TWS = game:GetService("TweenService")
 
-local sounds = {}
+local sounds = {18633296261, 9060084190}
 local DeathMessages = {
   death = {
     "noob",
@@ -23,12 +23,13 @@ local DeathMessages = {
     "{enemy} sent you to Brazil."
   }
 }
-local function TextAnimation()
+local function TextAnim()
+  deathTxt.TextTransparency = 0
   local dfSize = deathTxt.Size
-  local zoomSize = UDim2.new(dfSize.Size.X.Scale * 1.1, 0, dfSize.Size.Y.Scale * 1.1, 0)
+  local zoomSize = UDim2.new(dfSize.X.Scale * 1.1, 0, dfSize.Y.Scale * 1.1, 0)
   
   local zoomIn = TWS:Create(deathTxt, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = zoomSize})
-  local zoomOut = TWS:Create(deathTxt, TweenInfo.new(0.1), Enum.EasingStyle.Quad, Enum.EasingDirectiom.Out), {Size = dfSize})
+  local zoomOut = TWS:Create(deathTxt, TweenInfo.new(0.1), Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = dfSize})
     zoomIn:Play()
     zoomIn:Completed:Wait()
     task.wait(0.1)
@@ -41,16 +42,15 @@ game.Players.PlayerAdded:Connect(function(player)
   player.CharacterAdded:Connect(function(character)
     local Humanoid = character:FindFirstChild("Humanoid")
     if Humanoid then
-      humanoid.Died:Connect(function()
+      Humanoid.Died:Connect(function()
         local Creator = Humanoid:FindFirstChild("creator")
         if Creator and Creator.Value then
-          local Killer = Creator.value
+          local Killer = Creator.Value
           if Killer:IsA("Player") then
             local rdDeathMsg = DeathMessages.lose[math.random(1,#DeathMessages.lose)]
             rdDeathMsg = rdDeathMsg:gsub("{enemy}", Killer.Name)
-            print(rdDeathMsg)
             deathTxt.Text = rdDeathMsg
-            TextAnimation()
+            TextAnim()
           end
         end
       end)
