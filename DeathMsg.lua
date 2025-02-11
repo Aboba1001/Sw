@@ -37,7 +37,7 @@ local function playSound()
   task.wait(deathSound.TimeLength + 2)
   deathSound:Destroy()
 end
-local function TextAnim()
+local function playAnim()
   deathTxt.TextTransparency = 0
   local dfSize = deathTxt.Size
   local zoomSize = UDim2.new(dfSize.X.Scale * 1.1, 0, dfSize.Y.Scale * 1.1, 0)
@@ -45,8 +45,7 @@ local function TextAnim()
   local zoomIn = TWS:Create(deathTxt, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = zoomSize})
   local zoomOut = TWS:Create(deathTxt, TweenInfo.new(0.1), Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = dfSize})
     zoomIn:Play()
-    zoomIn:Completed:Wait()
-    task.wait(0.1)
+    task.wait(zoomIn.TimeLength)
     zoomOut:Play()
     task.wait(4.5)
     local doTweenAlpha = TWS:Create(deathTxt, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 1})
@@ -64,7 +63,7 @@ game.Players.PlayerAdded:Connect(function(player)
             local rdDeathMsg = DeathMessages.lose[math.random(1,#DeathMessages.lose)]
             rdDeathMsg = rdDeathMsg:gsub("{enemy}", Killer.Name)
             deathTxt.Text = rdDeathMsg
-            TextAnim()
+            playAnim()
             playSound()
           end
         end
