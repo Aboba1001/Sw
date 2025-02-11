@@ -21,15 +21,15 @@ local DeathMessages = {
     "Killed {enemy}"
     "Sent {enemy} to Brazil.",
     "{enemy}'s death speedrun any%",
-    "{enemy} did not cook.",
+    "{enemy} did not cook",
     "{enemy} posted cringe",
     "{enemy} ran out of Ultra Instinct",
     "{enemy} got caught in 4k",
     "{enemy} fell for the oldest trick in book",
   },
   lose = {
-    "{enemy} killed you"
-    "{enemy} sent you to Brazil."
+    "{enemy} killed you",
+    "{enemy} sent you to Brazil.",
     "{enemy} caught you in 4k",
   }
 }
@@ -63,3 +63,4 @@ local function playAnim()
     doTweenAlpha:Play()
 end
 game.Players.PlayerAdded:Connect(function(player)
+  
