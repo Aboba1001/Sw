@@ -1,7 +1,6 @@
 local deathTxt = script.Parent
 local TWS = game:GetService("TweenService")
 
-local sounds = {18633296261, 9060084190}
 local DeathMessages = {
   death = {
     "noob",
@@ -23,11 +22,16 @@ local DeathMessages = {
     "{enemy} sent you to Brazil."
   }
 }
+
+local sounds = {18633296261, 9060084190}
 local function Sound()
   local deathSound = Instance.new("Sound")
   deathSound.Parent = workspace
-  deathSound.SoundId = "rbxasset://" .. tostring(sounds)
+  deathSound.SoundId = "rbxasset://" .. deathSound[math.random(1, #sounds)]
   deathSound:Play()
+  
+  task.wait(deathSound.TimeLength)
+  deathSound:Destroy()
 end
 local function TextAnim()
   deathTxt.TextTransparency = 0
