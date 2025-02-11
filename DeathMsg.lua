@@ -73,3 +73,8 @@ game.Players.PlayerAdded:Connect(function(player)
           playAnim()
           deathTxt.Text = DeathMessages[math.random(1, #death)]
           print(" $ " .. DeathMessages[math.random(1, #death)])
+        end
+      end
+    end)
+  end)
+end
