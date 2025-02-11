@@ -61,6 +61,7 @@ game.Players.PlayerAdded:Connect(function(player)
             rdDeathMsg = rdDeathMsg:gsub("{enemy}", Killer.Name)
             deathTxt.Text = rdDeathMsg
             TextAnim()
+            playSound()
           end
         end
       end)
