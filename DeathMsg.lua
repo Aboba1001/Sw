@@ -23,6 +23,8 @@ local DeathMessages = {
     "{enemy} sent you to Brazil."
   }
 }
+local function Sound()
+end
 local function TextAnim()
   deathTxt.TextTransparency = 0
   local dfSize = deathTxt.Size
