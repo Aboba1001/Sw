@@ -24,6 +24,10 @@ local DeathMessages = {
   }
 }
 local function Sound()
+  local deathSound = Instance.new("Sound")
+  deathSound.Parent = workspace
+  deathSound.SoundId = "rbxasset://" .. tostring(sounds)
+  deathSound:Play()
 end
 local function TextAnim()
   deathTxt.TextTransparency = 0
