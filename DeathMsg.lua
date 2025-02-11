@@ -13,13 +13,21 @@ local DeathMessages = {
     "💀",
     ":skull:",
     "glad i'm not you",
+    "📸📸📸",
+    "what is bro cooking"
   },
   win = {
     "Sent {enemy} to Brazil.",
     "{enemy}'s death speedrun any%",
+    "{enemy} did not cook.",
+    "{enemy} posted cringe",
+    "{enemy} ran out of Ultra Instinct",
+    "{enemy} got caught in 4k",
+    "{enemy} fell for the oldest trick in book",
   },
   lose = {
     "{enemy} sent you to Brazil."
+    "{enemy} caught you in 4k",
   }
 }
 
@@ -52,22 +60,3 @@ local function playAnim()
     doTweenAlpha:Play()
 end
 game.Players.PlayerAdded:Connect(function(player)
-  player.CharacterAdded:Connect(function(character)
-    local Humanoid = character:FindFirstChild("Humanoid")
-    if Humanoid then
-      Humanoid.Died:Connect(function()
-        local Creator = Humanoid:FindFirstChild("creator")
-        if Creator and Creator.Value then
-          local Killer = Creator.Value
-          if Killer:IsA("Player") then
-            local rdDeathMsg = DeathMessages.lose[math.random(1,#DeathMessages.lose)]
-            rdDeathMsg = rdDeathMsg:gsub("{enemy}", Killer.Name)
-            deathTxt.Text = rdDeathMsg
-            playAnim()
-            playSound()
-          end
-        end
-      end)
-    end
-  end)
-end)
