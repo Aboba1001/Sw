@@ -17,6 +17,7 @@ local DeathMessages = {
     "what is bro cooking"
   },
   win = {
+    "Killed {enemy}"
     "Sent {enemy} to Brazil.",
     "{enemy}'s death speedrun any%",
     "{enemy} did not cook.",
@@ -26,6 +27,7 @@ local DeathMessages = {
     "{enemy} fell for the oldest trick in book",
   },
   lose = {
+    "{enemy} killed you"
     "{enemy} sent you to Brazil."
     "{enemy} caught you in 4k",
   }
