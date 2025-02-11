@@ -63,4 +63,10 @@ local function playAnim()
     doTweenAlpha:Play()
 end
 game.Players.PlayerAdded:Connect(function(player)
-  
+  player.CharacterAdded:Connect(function()
+    Humanoid.Died:Connect(function()
+      local Humanoid = character.WaitForChild("Humanoid")
+      local Creator = Humanoid.FindFirstChild("creator")
+      if Creator == nil then
+        if Humanoid.Health == 0 then
+          deathTxt.Text = DeathMessages[math.random(1, #death)]
