@@ -50,6 +50,7 @@ local function playSound()
 end
 local function playAnim()
   deathTxt.TextTransparency = 0
+  
   local dfSize = deathTxt.Size
   local zoomSize = UDim2.new(dfSize.X.Scale * 1.1, 0, dfSize.Y.Scale * 1.1, 0)
   
