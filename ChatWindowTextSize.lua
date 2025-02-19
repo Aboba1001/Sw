@@ -8,4 +8,4 @@ local chatConfig = TCS.ChatWindowConfiguration
 
 chatConfig.TextSize = 14
 
-local yes = 0
+local yes = 01
