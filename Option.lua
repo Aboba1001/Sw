@@ -4,7 +4,7 @@ local Lighting = game:GetService("Lighting")
 local isDay = false
 local TextLabel = script.Parent
 
-TextLabel.Text = "Time:  Day"
+TextLabel.Text = "Time: Day"
 
 TextLabel.MouseButton1Click:Connect(function()
   if not isDay then
