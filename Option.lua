@@ -4,10 +4,12 @@ local Lighting = game:GetService("Lighting")
 local isDay = false
 local TextLabel = script.Parent
 
+TextLabel.Text = "Time:  Day"
+
 TextLabel.MouseButton1Click:Connect(function()
   if not isDay then
     TextLabel.Text = "Time: Day"
-    Lighting.ClockTime = 10
+    Lighting.ClockTime = 14
     isDay = true
     else
       TextLabel.Text = "Time: Night"
