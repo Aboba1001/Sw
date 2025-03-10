@@ -1,31 +1,24 @@
-local Player = game.Players.LocalPlayer
 local Character = Player.Character or Player.CharacterAdded:Wait() 
+local Player = game.Players.LocalPlayer
 local Humanoid = Character:WaitForChild("Humanoid")
 local Topbar = require(game.ReplicatedStorage.Topbar.Icon)
 
 local Music = workspace.Music
 
+local MainGui = Player:WaitForChild("PlayerGui"):WaitForChild("Main")
+local SettingsMenu = MainGui:WaitForChild("Settings")
+local CommandsMenu = MainGui:WaitForChild("Commands")
+local AchievementsMenu = MainGui:WaitForChild("Achievements")
+
 local Settings = Topbar.new()
 Settings:setImage()
-Settings:setCaption("Open Settings")
 Settings:align("Right")
-Settings:setDropdown({
-  Topbar.new()
-  :setLabel("Music: ON", "Selected")
-  :setLabel("Music: OFF", "Deselected")
-  :bindEvent("selected", function()
-    Music:Stop()
-  end)
-  :bindEvent("deselected", function()
-    Music:Play()
-  end),
-  Topbar.new()
-  :setLabel("Shadows: ON", "Selected")
-  :setLabel("Music: OFF", "Deselected")
-  :bindEvent("selected", function()
-    game.Lighting.GlobalShadows = true
-  end)
-  :bindEvent("deselected", function()
-    game.Lighting.GlobalShadows = false
-  end)
-})
+Settings:oneClick(true)
+Settings:bindEvent("deselected", function()
+  SettingsMenu.visible = not SettingsMenu.visible
+end)
+
+local Commands = Topbar.new()
+Commands:setImage(70420546735913)
+Commands:align("Right")
+Commands:oneClick(true)
