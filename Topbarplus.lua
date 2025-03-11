@@ -20,5 +20,8 @@ end)
 
 local Commands = Topbar.new()
 Commands:setImage(70420546735913)
-Commands:align("Right")
+Commands:align("Left")
 Commands:oneClick(true)
+Commands:bindEvent("deselected", function()
+  CommandsMenu.visible = not CommandsMenu.visible
+end)
