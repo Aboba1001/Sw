@@ -5,11 +5,8 @@ local Topbar = require(game.ReplicatedStorage.Topbar.Icon)
 
 local Music = workspace.Music
 
-local PlayerGui = Player:WaitForChild("PlayerGui")
-local MainGui = PlayerGui:WaitForChild("Main")
-local SettingsMenu = MainGui:WaitForChild("Settings") 
-local CommandsMenu = MainGui:WaitForChild("Commands")
-local AchievementsMenu = MainGui:WaitForChild("Achievements")
+local screenGui = game.Players.LocalPlayer.PlayerGui:WaitForChild("DifferentScreenGui")
+local SettingsFrame = screenGui:WaitForChild("Settings")
 
 local Settings = Topbar.new()
 Settings:setImage()
