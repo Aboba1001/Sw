@@ -13,7 +13,7 @@ Settings:setImage()
 Settings:align("Right")
 Settings:oneClick(true)
 Settings:bindEvent("deselected", function()
-  SettingsMenu.visible = not SettingsMenu.visible
+  SettingsFrame.visible = not SettingsFrame.visible
 end)
 
 --[[
