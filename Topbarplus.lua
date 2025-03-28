@@ -16,6 +16,7 @@ Settings:bindEvent("deselected", function()
   SettingsMenu.visible = not SettingsMenu.visible
 end)
 
+--[[
 local Commands = Topbar.new()
 Commands:setImage(70420546735913)
 Commands:align("Left")
@@ -23,3 +24,4 @@ Commands:oneClick(true)
 Commands:bindEvent("deselected", function()
   CommandsMenu.visible = not CommandsMenu.visible
 end)
+--]]
